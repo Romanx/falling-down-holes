@@ -3,7 +3,7 @@ import Carousel from 'nuka-carousel';
 
 const twitterImage = {
   borderRadius: '50%',
-  width: '4em',
+  width: '128px',
   height: '128px',
   display: 'inline-block',
 };
@@ -36,7 +36,7 @@ export default class TwitterRotator extends React.Component<TwitterRotatorProps>
           display: 'flex',
           padding: '0.5rem',
           height: '144px',
-          width: '50%',
+          width: '100%',
           alignItems: 'center',
         }}
       >
