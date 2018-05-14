@@ -53,6 +53,7 @@ export default class TwitterRotator extends React.Component<TwitterRotatorProps>
         autoplay={true}
         slidesToShow={2}
         wrapAround={true}
+        autoplayInterval={1750}
         renderTopCenterControls={null}
         renderCenterLeftControls={null}
         renderCenterRightControls={null}
