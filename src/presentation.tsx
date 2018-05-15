@@ -214,7 +214,7 @@ export default class Presentation extends React.Component {
             <a style={linkStyle}>{'https://choosealicence.com'}</a>
           </Text>
         </Slide>
-        <Slide transition={['fade']}>
+        <Slide notes={'- First Bug & Ownership of Nustache<br/> - Outgrowing JDiamonds code and wanting "new"'} transition={['fade']}>
           <Heading size={1} fit caps lineHeight={1}>
             How I fell down the hole...
           </Heading>
@@ -227,7 +227,7 @@ export default class Presentation extends React.Component {
             </Fill>
           </Layout>
         </Slide>
-        <Slide transition={['fade']} bgColor="secondary" textColor="primary">
+        <Slide transition={['fade']} bgColor="secondary" textColor="primary" notes={'- Greenfield can be bad<br/>- 70 days between start and "almost" beta Alpha 15<br/>- Scope Creep and 265 days to Between Alpha 15 and 16'}>
           <Heading size={1} fit caps lineHeight={1}>
             Where it all went wrong
           </Heading>
@@ -239,7 +239,7 @@ export default class Presentation extends React.Component {
           </Heading>
           <img style={{ height: '40rem' }} src="/images/alpha16.jpg" />
         </Slide>
-        <Slide transition={['fade']} bgColor="secondary" textColor="primary">
+        <Slide transition={['fade']} bgColor="secondary" textColor="primary" notes={'- Burnout on something you choose<br/>- Feeling stupid and imposter syndrome<br/>- Breakthrough but why I didn\'t make a beta<br/>- Everything I consider common sense at work, I didn\'t do for myself.'}>
           <Heading size={1} fit caps lineHeight={1}>
             Where it all went wrong
           </Heading>
@@ -305,7 +305,7 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
-        <Slide>
+        <Slide notes={'- Open source projects and Developers<br/>- Similar Projects<br/>- NodaTime<br/>- Markdig (Copying code with licences)<br/>- Blogs'}>
           <Heading size={1} fit caps lineHeight={1}>
             Getting the most out of being open source
           </Heading>
@@ -388,7 +388,7 @@ export default class Presentation extends React.Component {
             <TwitterRotator users={twitterUsers} />
           </div>
         </Slide>
-        <Slide bgColor="secondary" textColor="primary">
+        <Slide bgColor="secondary" textColor="primary" notes={'- Exciting Time in .Net Open Source<br/>- Talk is Open source on github (React slides thanks to FormidableLabs & Spectacle)<br/>- Thank you everyone'}>
           <Heading size={1} fit caps lineHeight={1}>
             Thank you for listening
           </Heading>
