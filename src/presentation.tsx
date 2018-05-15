@@ -388,7 +388,7 @@ export default class Presentation extends React.Component {
             <TwitterRotator users={twitterUsers} />
           </div>
         </Slide>
-        <Slide bgColor="secondary" textColor="primary" notes={'- Exciting Time in .Net Open Source<br/>- Talk is Open source on github (React slides thanks to FormidableLabs & Spectacle)<br/>- Thank you everyone'}>
+        <Slide bgColor="secondary" textColor="primary" notes={'- Exciting Time in .Net Open Source<br/>- Talk is Open source on github (React slides thanks to FormidableLabs & Spectacle)<br/>-Thank Netlify<br/>- Thank you everyone'}>
           <Heading size={1} fit caps lineHeight={1}>
             Thank you for listening
           </Heading>
