@@ -1,0 +1,171 @@
+# Falling down holes: for beginners
+
+What I wish I would have known and some holes I fell into
+
+## Who Am I and why should you care?
+
+Hi everyone, my name is Alex McAuliffe. I'm also known as Romanx on Github and ItemLevel1 on Twitter.
+I'm here today to talk about getting started in open source, how I ended up falling into it, mistakes I made along the way and tools and services that helped me.
+
+I'm going to prefix this talk with the fact that I'm not a "rockstar" developer, I don't have 500 bajillion open source projects across 640 different languages and I'm definitely not being paid for my open source contributions. You don't have to be in the 1% of developers that can read the matrix and find a billion pound bug just by reading code to contribute. Everyone in this room can do it!
+
+## What exactly is "Open Source"?
+
+Okay so lets get to it, "What is Open Source".
+
+Wikipedia defines it as _"a type of computer software with its source code made available with a license in which the copyright holder provides the rights to study, change, and distribute the software to anyone and for any purpose."_.
+
+I'd say this defines it pretty well, it's a price of software (or code) that we write and provide to others with a license stating what we allow them to do with it.
+I'll add the aside that there are hundreds of different types of license that provide you, the copyright holder with different benefits.
+
+Now this talk is too short to go into any details on licenses however i'd recommend choosealicense.com which is provided by github and spells out many of the licenses in an easy to understand fashion for a non-lawyer like me.
+
+## My Path to Open Source
+
+I started working on open source due to a bug in some software that I was using.
+I was working on a project using the most well known dotnet implementation of the mustache templating language, Nustache.
+There was a bug in the code that I knew was a bug but it wasn't my code so how could I fix it?
+My workmate at the time just said "Find where the bug is in their code, submit a fix and hopefully they'll accept and we can just pull in the newest version. Oh yeah and everyone else will get the fix too".
+
+It took me about 40 minutes to find where the bug was, understand enough of the existing code to understand why the error was being caused and come up with a fix. I understood enough about GitHub to get a pull request open with the changes and started a dialog with the owner
+JDiamond. He came back to me saying "Thanks for the contribution but i'm not really working on Nustache anymore. I can give you maintainer access though?".
+From that point I was able to merge my own code, into the master branch and create a NuGet release.
+
+The whole cycle took about a week. But during that time we were able to use my patched version of Nustache because their code was open and licence was permissive enough to let us do that. As soon as the master version was merged we just updated our NuGet references and carried on.
+
+After that Nustache became my test bed for a load of things I wanted to be able to do at work but wasn't able to due to time or monitary constraints. Thanks to open source tools and companies that allow usage of their systems for open source projects i was able to setup continuous integration, unit testing and remove the manual process from creating a Nustache release allowing me to accept others pull requests with confidence.
+
+A while after I wanted to explore the new .Net Core and netStandard things being yelled about by Microsoft and other developers that I admire however I didn't feel confident enough in a codebase I was effectively caretaker of.
+
+I began to write my own replacement that would be cross platform, unit tested from the start, performance conscious, some would say to the point of obsession, and most importantly for me at the time it was a greenfield for me to "fix" some of the things I felt we wrong with the original design decisions of Nustache and who doesn't like working on something new?
+
+## Where it all went wrong
+
+And that was where it all went wrong.
+Or more accurately where it began to go wrong.
+Greenfield projects are great because they give you a fresh clean start and you go into the new project with a sense of optimism since you feel less burdened by the legacy of the past.
+At the same time you don't consider the work that went into the original, the bugs that were found (and ideally fixed along the way) and the time spent thinking about problems.
+
+I thought I could do better than Nustache and for a time I was right, It took me 70 days between the first commit and a tag for Alpha 15.
+I'd had a working mustache renderer working for quite awhile that was compliant with the mustache spec however this is where I think I should have stopped and released a Beta and eventually a 1.0.
+
+Things shifted after that release and the scope began to creep.
+Again I thought I could do better than Nustache's basic Regex parser and write a "proper" one that scanned the incoming template which should in theory give me a large speed increase.
+
+It took me 265 days to get Alpha 16 released and as you can see I had some sense of humor about it.
+
+I'm not going to go into details about why it took so long, mainly due to some wonderful edge cases regarding whitespace and line-endings when rendering templates. I know its exciting?
+
+But what happened during was interesting which is that I burnt out, something I thought couldn't happen when I was effectively working for myself on something that I chose.
+
+I struggled with this bug. It made me feel stupid and want to quit working on Stubble and for some months in between I did.
+Feeling like an imposter is not uncommon in our industry and often we need others to remind us that we're good and capable at what we're doing and collaborating with others in the community is where open source shines.
+
+Taking a step back and looking at the problem, I eventually had a breakthrough that made it click.
+But the pressure that it was possible someone on the internet was waiting on me to update my library, was enough to make me feel that I had to maintain or at least show activity so they knew that the project wasn't dead and give up on me.
+
+So you're probably thinking I learnt my mistake, cut a beta right after the Alpha and then released the 1.0? Nope. 
+I fell down another hole because there was another feature that without I don't consider the project "worthy" of a 1.0.
+I thought that if people had been waiting so long already for me to release then a little longer for something I consider to be near complete wouldn't hurt and thats where I am today.
+
+I guess the moral of the story is that many of the things I consider common sense in my everyday job I didn't apply to my open source work.
+The idea of having something in a releasable state as often as possible is good since it forces you to break features into managable pieces which is ideal for the part time nature of most open source work.
+Try to have some idea of milestones containing features that you would like to release at and try to stick to them as best as you can.
+And lastly that accepting for now that something is "good" enough to be released is often vital, at least for me it is because there is always more performance to be found, an easier way of configuring
+
+## Getting the most out of being open source
+
+Some other tools and services that can help you are:
+
+### Source Control
+
+This is a very core one to me as it allows you to version your source code and other resources.
+I'm mainly going to focus on git as that's what I use however SVN and Mercurial are other well used source control systems.
+
+#### Github
+
+Github a very well known repository host for git projects.
+Includes issue tracking, milestones (release tracking) and version control.
+It's heavily used in the open source community and most projects you will likely find on here.
+It's free for open source projects however for a small cost you can have private repositories
+
+#### Bitbucket
+
+An alternative for github that allows a small number of private repos for free.
+It has some build services included at the free tier however i've not used them so have no real idea on how that works.
+Also includes trello boards for managing your issues in a more "kanban" agile style.
+Has integration with most of Atlassan's other offerings
+
+#### VSTS/Gitlab
+
+These two I have no experience of however they both provide source control hosting and other advanced features.
+
+### Code Quality
+
+There are a variety of services that can give you confidence that the quality of your code is consistent.
+
+#### Continuous Integration
+
+CI services such as Appveyor and Travis will allow you to have confidence that your code builds somewhere other than just your machine.
+Appveyor currently has windows machines for you to build on (however linux machines are in beta currently) and Travis has Linux machines.
+
+Integrating these services with your source control will allow you to know that some code actually compiles and the tests run on somewhere other than your machine.
+
+You can setup branch specific steps so that when you create a git tag for a release your CI system can build the code, package it and upload it to nuget for you.
+All this automatically, if and only if all the checks are successful.
+
+Code coverage tools such as Coveralls and CodeCov integrate with your CI builds and can provide branch analysis of how your code coverage has improved or been reduced by what you've written.
+
+These services will allow other developers to submit code to your project, have it be built and verified before you need to look at it.
+It isn't uncommon to have a projects style standards be checked by CI so that a human doesn't have to do it!
+
+### Other open source projects and Developers
+
+To me one of the most important resources that I use regularly when working on Stubble is other open source developers and projects.
+I usually try to look for projects with a similar type such as other parsers or templating languages, often these don't even need to be in the same language such as Mustache.java however its useful to look at how others have solved similar problems.
+
+I use Jon Skeet's NodaTime project heavily when trying to understand how best to layout my project and get it working with Appveyor and Travis. He's an excellent developer and always writes very clean code, I'd advise anyone to take a look.
+
+I also borrowed a lot from Markdig by Xoofx. I actually copied some of his code for string slicing, with attribution of course since its open source with a permissive licence.
+
+Reading blogs, walkthroughs and deepdives are always very useful, some in the context of learning new things.
+Others for enhancements for your own code based on others learning, fun fact is that my builder interface for Stubble is heavily "inspired" by ASPNET Cores' builder configuration.
+
+Okay so since i'm getting to the end i'll quickly go through a few resources I use regularly:
+
+* Morning Dew : Great weekday resource of aggregated posts from the .Net world covering development, to databases and design
+* Steve Gordon : Our own Steve Gordon has been writing some excellent posts about the ASPNet Core world which I enjoy. He even has a series on getting started with motivational speaking which unfortunately has caused you to have to listen to me. Please direct any complaints to Steve.
+* Matthew Warren : Some very detailed deep dives on the internals of the .Net runtime and the CLR. Always an interesting read.
+* Xoofx : Some interesting posts about C# performance and most recently writing a managed JIT in C#
+
+And lastly Twitter! I used to really dislike twitter and then I began to curate my experience by following developers and other people in the industry who I find interesting or who lead me to interesting content. On the slides you'll see a carousel of some of the people that I follow and who lead me to interesting content and discussions.
+
+## So how can I get started...
+
+Okay so you've listen to me ramble long enough.
+If i've peaked your interest at all in jumping down rabbit holes then here are some resources i'd recommend to get started.
+
+Unless you have an idea in your head, a good place to get started is by contributing to others projects.
+Some ways to find projects to contribute is through github explore.
+This is a curated resource of projects on github that are categorised and you can see whats trending across different time periods.
+It's a good resource to discover big projects that are likely to be mentioned across twitter or in other spaces.
+
+Up for grabs is an excellent starting place as you can find projects and issues that have been specifically selected by the maintainers as a good for getting started.
+
+It's also worth mentioning that a good place to start is with documentation improvements for projects that you think look interesting.
+Download their code and try to get it running on your machine, document anything you think isn't clear and contribute it back with a friendly pull request.
+Many maintainers would love to have your input in making their project better and often docs are overlooked.
+
+## Wrapup
+
+I hope that this rambling talk has at least warned you of some of the pitfalls that I fell into, but also given you an insight into how exiting and interesting open source can be.
+There are so many excellent projects, maintainers and influencers in the open source community and especially the resurgence the dotnet open source community has seen in the last few years.
+
+This talk is available on github at the url behind me: https://github.com/romanx/falling-down-holes
+
+While working on this I was trying to procrastinate so much I wrote it in React so a thank you to FormidableLabs for writing spectacle which helped me write my slide application.
+
+This has been a terrfying experience and I hope that I've not bored you all. My biggest drive with this talk was to show that If I can develop open source software then so can you.
+And if I can give a talk on something then so can you. Hopefully I get to hear one of you speak next time.
+
+Please learn as much as you can from everyone you can, embrace diversity and encourage it. Thank you for listening to me.
