@@ -1,6 +1,7 @@
 // Import React
 import * as React from 'react';
-import TwitterRotator from 'src/TwitterType';
+import TwitterRotator from 'src/TwitterRotator';
+import twitterUsers from './twitter-users.json';
 
 // Import Spectacle Core tags
 import {
@@ -60,93 +61,14 @@ const linkStyle = { color: '#03A9FC', textDecoration: 'underline', fontSize: '2r
 //   },
 // );
 
-const twitterUsers = [
-  {
-    name: 'Jon Skeet',
-    handle: 'jonskeet',
-    image: 'https://pbs.twimg.com/profile_images/783726102996922368/4OTYaJ-o.jpg',
-  },
-  {
-    name: 'Dotnet Southeast',
-    handle: 'dotnetsoutheast',
-    image: 'https://pbs.twimg.com/profile_images/885062097406746625/tLWi33YE.jpg',
-  },
-  {
-    name: 'Steve Gordon',
-    handle: 'stevejgordon',
-    image: 'https://pbs.twimg.com/profile_images/687198506679930880/mGOfQrls.jpg',
-  },
-  {
-    name: 'Julie Lerman',
-    handle: 'julielerman',
-    image: 'https://pbs.twimg.com/profile_images/3300099539/d3f67204d791bca0bcd14db7337b6758.jpeg',
-  },
-  {
-    name: 'Laura E. Hunter',
-    handle: 'adfskitteh',
-    image: 'https://pbs.twimg.com/profile_images/563412185527758848/A5_1wUIW.jpeg',
-  },
-  {
-    name: 'Ashley the Compiler Princess',
-    handle: 'khyperia',
-    image: 'https://pbs.twimg.com/profile_images/954187763661680641/3yWf_wMm.jpg',
-  },
-  {
-    name: 'Immo Landwerth',
-    handle: 'terrajobst',
-    image: 'https://pbs.twimg.com/profile_images/970581417422872576/XOQG6g70.jpg',
-  },
-  {
-    name: 'Kasey Uhlenhuth',
-    handle: 'kuhlenhuth',
-    image: 'https://pbs.twimg.com/profile_images/704473408638050304/bVbzez9X.jpg',
-  },
-  {
-    name: 'Nick Craver',
-    handle: 'Nick_Craver',
-    image: 'https://pbs.twimg.com/profile_images/623686606159872000/twD9NrLc.jpg',
-  },
-  {
-    name: 'Kendra Havens',
-    handle: 'gotheap',
-    image: 'https://pbs.twimg.com/profile_images/930877546471686144/ouiBJikR.jpg',
-  },
-  {
-    name: 'David Fowler',
-    handle: 'davidfowl',
-    image: 'https://pbs.twimg.com/profile_images/511247105722036224/VpxmKujV.jpeg',
-  },
-  {
-    name: 'Damian Edwards',
-    handle: 'DamianEdwards',
-    image: 'https://pbs.twimg.com/profile_images/691328963658919936/pEo2ARo0.jpg',
-  },
-  {
-    name: 'Lena Droid',
-    handle: 'lenadroid',
-    image: 'https://pbs.twimg.com/profile_images/939619545815302144/lKEYkVv1.jpg',
-  },
-  {
-    name: 'Karen Ng',
-    handle: 'karenkayliu',
-    image: 'https://pbs.twimg.com/profile_images/660185428721430528/5zDWgQBS.jpg',
-  },
-  {
-    name: 'Una',
-    handle: 'Una',
-    image: 'https://pbs.twimg.com/profile_images/923332236799291393/JFc4MauF.jpg',
-  },
-  {
-    name: 'Sarah Drasner',
-    handle: 'sarah_edo',
-    image: 'https://pbs.twimg.com/profile_images/982796605425303552/phhp5grt.jpg',
-  },
-  {
-    name: 'Sara Soueidan',
-    handle: 'SaraSoueidan',
-    image: 'https://pbs.twimg.com/profile_images/990908832162467841/jkEmG2NT.jpg',
-  },
-].sort(function() {
+console.log(twitterUsers);
+
+var map = twitterUsers.map(user => ({
+  ...user,
+  image: `https://avatars.io/twitter/${user.handle}`
+}));
+
+const twitterUsersSorted = map.sort(function() {
   return 0.5 - Math.random();
 });
 
@@ -346,7 +268,7 @@ export default class Presentation extends React.Component {
           <Heading size={2} fit caps lineHeight={1} textColor="primary">
             Twitter
           </Heading>
-          <TwitterRotator users={twitterUsers} />
+          <TwitterRotator users={twitterUsersSorted} />
         </Slide>
         <Slide>
           <Heading size={1} fit caps lineHeight={1}>
@@ -375,7 +297,7 @@ export default class Presentation extends React.Component {
               </ListItem>
             </Appear>
           </List>
-          <TwitterRotator users={twitterUsers} />
+          <TwitterRotator users={twitterUsersSorted} />
         </Slide>
         <Slide bgColor="secondary" textColor="primary">
           <Heading size={1} fit caps lineHeight={1}>
@@ -385,7 +307,7 @@ export default class Presentation extends React.Component {
             <a style={linkStyle}>{'https://github.com/Romanx/falling-down-holes'}</a>
           </div>
           <div style={{ marginTop: '2rem' }}>
-            <TwitterRotator users={twitterUsers} />
+            <TwitterRotator users={twitterUsersSorted} />
           </div>
         </Slide>
         <Slide bgColor="secondary" textColor="primary" notes={'- Exciting Time in .Net Open Source<br/>- Talk is Open source on github (React slides thanks to FormidableLabs & Spectacle)<br/>-Thank Netlify<br/>- Thank you everyone'}>
@@ -396,7 +318,7 @@ export default class Presentation extends React.Component {
             Learn as much as you can from everyone you can, embrace diversity and encourage it
           </span>
           <div style={{ marginTop: '2rem' }}>
-            <TwitterRotator users={twitterUsers} />
+            <TwitterRotator users={twitterUsersSorted} />
           </div>
         </Slide>
       </Deck>

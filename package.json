@@ -3,21 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/node": "8.10.10",
+    "@types/node": "11.11.0",
     "@types/react": "^16.3.12",
-    "@types/react-dom": "16.0.5",
+    "@types/react-dom": "16.8.2",
     "@types/react-transition-group": "^2.0.9",
-    "@types/spectacle": "^1.2.1",
+    "@types/spectacle": "^5.2.3",
     "nuka-carousel": "^4.1.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-transition-group": "^2.3.1",
-    "spectacle-scripts": "2.0.0",
-    "typescript": "^2.8.3"
+    "spectacle-scripts": "2.3.0",
+    "typescript": "^3.3.3333"
   },
   "devDependencies": {
     "prettier-tslint": "^0.4.0",
-    "react-scripts-ts": "2.15.1"
+    "react-scripts-ts": "3.1.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",
