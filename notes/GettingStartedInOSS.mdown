@@ -4,10 +4,18 @@ What I wish I would have known and some holes I fell into
 
 ## Who Am I and why should you care?
 
-Hi everyone, my name is Alex McAuliffe. I'm also known as Romanx on Github and ItemLevel1 on Twitter.
-I'm here today to talk about getting started in open source, how I ended up falling into it, mistakes I made along the way and tools and services that helped me.
+Hi everyone, my name is Alex McAuliffe. 
+I'm known as Romanx on Github and ItemLevel1 on Twitter and my prefered pronouns are He/Him.
 
-I'm going to prefix this talk with the fact that I'm not a "rockstar" developer, I don't have 500 bajillion open source projects across 640 different languages and I'm definitely not being paid for my open source contributions. You don't have to be in the 1% of developers that can read the matrix and find a billion pound bug just by reading code to contribute. Everyone in this room can do it!
+I'm here tell you the story of how I fell into open source.
+The pitfalls I fell into along the way, some of the lessons I learned both about open source and myself.
+As well as the tools and services that I use to simplify some of the problems I face and help me.
+And by the end hopefully along the way convince all or some of you that it could be a worthy thing to investigate for both your own growth and the industry as a whole.
+
+I'm going to prefix this talk with the fact that I'm not a "rockstar" developer, I don't have 500 bajillion open source projects across 640 different languages and I'm definitely not being paid for my open source contributions.
+You don't have to be in the 1% of developers that can read the matrix and find a billion pound bug just by reading code to contribute. 
+
+This talk from my point of view as a developer but please don't let this stop you contributing if your skillset is different from my own, different is great.
 
 ## What exactly is "Open Source"?
 
@@ -18,7 +26,11 @@ Wikipedia defines it as _"a type of computer software with its source code made 
 I'd say this defines it pretty well, it's a price of software (or code) that we write and provide to others with a license stating what we allow them to do with it.
 I'll add the aside that there are hundreds of different types of license that provide you, the copyright holder with different benefits.
 
-Now this talk is too short to go into any details on licenses however i'd recommend choosealicense.com which is provided by github and spells out many of the licenses in an easy to understand fashion for a non-lawyer like me.
+I personally licence most of my code under the MIT licence, this is mainly due to the fact that the project I started on was MIT. 
+It also provides me with what I want in a licence. I want people to be able to do whatever they want with the code provided that I'm attributed and I want to take no liability for anything that they may find wrong with the code.
+Frankly I don't think much of my coding ability, I'm pretty average so I don't want any mistakes in something I'm providing free to come back and bite me.
+
+Now this talk is too short to go into any details on licenses however i'd recommend choosealicense.com which is provided by GitHub and spells out many of the licenses in an easy to understand fashion for a non-lawyer like me.
 
 ## My Path to Open Source
 
@@ -79,8 +91,11 @@ Some other tools and services that can help you are:
 
 ### Source Control
 
-This is a very core one to me as it allows you to version your source code and other resources.
-I'm mainly going to focus on git as that's what I use however SVN and Mercurial are other well used source control systems.
+Source control is pretty central to most development efforts and a basic understanding of the tooling will help lower the barrier of entry and make it less scary.
+
+Git is the most common and Github have some excellent sources and tooling on how to get started which a quick search will uncover.
+
+Speaking of Github.
 
 #### Github
 
@@ -96,9 +111,11 @@ It has some build services included at the free tier however i've not used them 
 Also includes trello boards for managing your issues in a more "kanban" agile style.
 Has integration with most of Atlassan's other offerings
 
-#### VSTS/Gitlab
+#### Azure DevOps
 
-These two I have no experience of however they both provide source control hosting and other advanced features.
+A terrible name for a pretty great resource.
+They have free hosting for public and private repositories and opt in tooling for both issue management and release tracking.
+They also integrate excellently with Azure DevOps Pipelines unsurprisingly which we'll discuss in a second.
 
 ### Code Quality
 
@@ -106,20 +123,42 @@ There are a variety of services that can give you confidence that the quality of
 
 #### Continuous Integration
 
-CI services such as Appveyor and Travis will allow you to have confidence that your code builds somewhere other than just your machine.
-Appveyor currently has windows machines for you to build on (however linux machines are in beta currently) and Travis has Linux machines.
+Continuous Integration or CI services listen for changes to your source code and perform actions for you in an automated manner.
+They gives us confidence that what we're working on doesn't only _Work on my machine_ and infact will work in a variety of different environments such a different operating systems or even different processor architectures although thats a little further than I've personally found the need to go.
 
-Integrating these services with your source control will allow you to know that some code actually compiles and the tests run on somewhere other than your machine.
+When I describe build here it can be anything from simple scripts to kicking off a whole load of complicated infrastructure.
+For my projects It will pull the new code, make sure it builds, run the tests and make sure they all succeed and then push that back to GitHub to inform me that everything is good or if it wasn't that I shouldn't accept it until we can fix the problems.
 
-You can setup branch specific steps so that when you create a git tag for a release your CI system can build the code, package it and upload it to nuget for you.
-All this automatically, if and only if all the checks are successful.
+This creates an dialog between me and the contributor but without the manual overhead of me having to check their contribution until its in a state that ready for merging.
 
-Code coverage tools such as Coveralls and CodeCov integrate with your CI builds and can provide branch analysis of how your code coverage has improved or been reduced by what you've written.
+- Appveyor: provide both Windows and Linux build machines for you to run your scripts on and have a whole host of other services you can use during your build such as Database Engines.
+- Azure DevOps Pipelines: Pipelines can be used separately from source control. It provides both Windows and Linux build machines for you to run your scripts. It also has the unique aspect of separating both build and release pipelines allowing you to release entirely separately from your build.
+- Travis: Travis has Linux build machines and has starting support for Windows machines. Personally i've found it less robust than Appveyor or Azure DevOps and am moving most of my workload to both Appveyor and Azure DevOps.
 
-These services will allow other developers to submit code to your project, have it be built and verified before you need to look at it.
-It isn't uncommon to have a projects style standards be checked by CI so that a human doesn't have to do it!
+#### Code Coverage
 
-### Other open source projects and Developers
+If you're writing tests and running them automatically you can use tools like Coverlet to give you a coverage output showing how much of your code is being tested.
+This isn't a perfect metric and infact sometimes can lead to writing tests just to increased your coverage, I'm definately guilty of this. 
+It does however allow you to see if you're missing whole branches of code in your tests and write some that cover it giving you more confidence so that when others contribute you can be sure your tests are covering what it needs to.
+
+Tools and Services such as Coveralls and CodeCov fall into the category of providing you with fancy graphs and a historical view of how your coverage has improved or decreased. This can give us verification we're going in the right direction and unknowingly going backwards.
+
+### Build Tools
+This is an odd heading but I couldn't think of anything better.
+When you start building cross platform you'll possibly run into the situation where your build script now won't work. The most common example is powershell on Linux.
+Now this is less of an issue with PowershellCore but management of these scripts can also be a whole adventure in itself.
+The general rule here is whatever works for you is perfect, it won't change too often but when it does it can lead to a lot of frustration.
+
+#### Cake
+Cake or C# Make is a C# domain specific language based method of writing your build tasks. This has specific libraries for compling your code, copying files or folders or any other tasks you may need. There's also a health ecosystem of extensions around this for any other needs you may have. It's also open source!
+
+#### Nuke
+Another C# based build automation system allowing you to write your build tasks in a C# like domain specific lanaguage. I've not got to use Nuke yet but it's gaining traction and seems like an interesting variation on what Cake is doing.
+
+#### Anything else!
+However you do your build scripts the important thing is it is clearly defined somewhere, ideally documented to simplify your changes so that anyone wanting to contribute knows how they can build the project.
+
+### Other open source projects
 
 To me one of the most important resources that I use regularly when working on Stubble is other open source developers and projects.
 I usually try to look for projects with a similar type such as other parsers or templating languages, often these don't even need to be in the same language such as Mustache.java however its useful to look at how others have solved similar problems.
@@ -127,6 +166,11 @@ I usually try to look for projects with a similar type such as other parsers or 
 I use Jon Skeet's NodaTime project heavily when trying to understand how best to layout my project and get it working with Appveyor and Travis. He's an excellent developer and always writes very clean code, I'd advise anyone to take a look.
 
 I also borrowed a lot from Markdig by Xoofx. I actually copied some of his code for string slicing, with attribution of course since its open source with a permissive licence.
+
+BenchmarkDotNet becoming popular allowed me to throw away my rough and ready benchmarks and replace them with something more robust and probably accurate.
+At the same time I looked at how Mustache.java was doing their performance testing and added mimiced their tests to give myself something more real-world.
+
+### Other open source developers
 
 Reading blogs, walkthroughs and deepdives are always very useful, some in the context of learning new things.
 Others for enhancements for your own code based on others learning, fun fact is that my builder interface for Stubble is heavily "inspired" by ASPNET Cores' builder configuration.
@@ -137,6 +181,8 @@ Okay so since i'm getting to the end i'll quickly go through a few resources I u
 * Steve Gordon : Our own Steve Gordon has been writing some excellent posts about the ASPNet Core world which I enjoy. He even has a series on getting started with motivational speaking which unfortunately has caused you to have to listen to me. Please direct any complaints to Steve.
 * Matthew Warren : Some very detailed deep dives on the internals of the .Net runtime and the CLR. Always an interesting read.
 * Xoofx : Some interesting posts about C# performance and most recently writing a managed JIT in C#
+
+### Twitter
 
 And lastly Twitter! I used to really dislike twitter and then I began to curate my experience by following developers and other people in the industry who I find interesting or who lead me to interesting content. On the slides you'll see a carousel of some of the people that I follow and who lead me to interesting content and discussions.
 

@@ -2,6 +2,7 @@
 import * as React from 'react';
 import TwitterRotator from 'src/TwitterRotator';
 import twitterUsers from './twitter-users.json';
+import notes from './notes';
 
 // Import Spectacle Core tags
 import {
@@ -49,23 +50,9 @@ const logoStyles = {
 
 const linkStyle = { color: '#03A9FC', textDecoration: 'underline', fontSize: '2rem' };
 
-// const theme = createTheme(
-//   {
-//     primary: '#EEBCFF',
-//     secondary: '#3B2F40',
-//     tertiary: '#775E7F',
-//   },
-//   {
-//     primary: 'Montserrat',
-//     secondary: 'Helvetica',
-//   },
-// );
-
-console.log(twitterUsers);
-
 var map = twitterUsers.map(user => ({
   ...user,
-  image: `https://avatars.io/twitter/${user.handle}`
+  image: `https://avatars.io/twitter/${user.handle}`,
 }));
 
 const twitterUsersSorted = map.sort(function() {
@@ -85,7 +72,7 @@ export default class Presentation extends React.Component {
             How I got started in open source and how you can too
           </Text>
         </Slide>
-        <Slide>
+        <Slide notes={notes.slide1}>
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
             Who am i and why should you care?
           </Heading>
@@ -112,6 +99,7 @@ export default class Presentation extends React.Component {
           </div>
           <Appear>
             <List textColor="secondary">
+              <ListItem>He/Him</ListItem>
               <ListItem>Not a "Rockstar"</ListItem>
               <ListItem>Can't read the matrix</ListItem>
               <ListItem>Likes dogs</ListItem>
@@ -119,7 +107,7 @@ export default class Presentation extends React.Component {
             </List>
           </Appear>
         </Slide>
-        <Slide transition={['fade']} bgColor="secondary" textColor="primary">
+        <Slide notes={notes.slide2} transition={['fade']} bgColor="secondary" textColor="primary">
           <Heading size={1} fit caps lineHeight={1}>
             What exactly is "Open Source"?
           </Heading>
@@ -132,11 +120,12 @@ export default class Presentation extends React.Component {
             <Cite>Wikipedia</Cite>
           </BlockQuote>
           <Text textColor="primary">
-            For help with choosing a licence:<br />
+            For help with choosing a licence:
+            <br />
             <a style={linkStyle}>{'https://choosealicence.com'}</a>
           </Text>
         </Slide>
-        <Slide notes={'- First Bug & Ownership of Nustache<br/> - Outgrowing JDiamonds code and wanting "new"'} transition={['fade']}>
+        <Slide notes={notes.slide3} transition={['fade']}>
           <Heading size={1} fit caps lineHeight={1}>
             How I fell down the hole...
           </Heading>
@@ -149,19 +138,19 @@ export default class Presentation extends React.Component {
             </Fill>
           </Layout>
         </Slide>
-        <Slide transition={['fade']} bgColor="secondary" textColor="primary" notes={'- Greenfield can be bad<br/>- 70 days between start and "almost" beta Alpha 15<br/>- Scope Creep and 265 days to Between Alpha 15 and 16'}>
+        <Slide notes={notes.slide4} transition={['fade']} bgColor="secondary" textColor="primary">
           <Heading size={1} fit caps lineHeight={1}>
             Where it all went wrong
           </Heading>
           <video loop autoPlay src="https://media.giphy.com/media/WUFgopvwap3AA/giphy.mp4" />
         </Slide>
-        <Slide transition={['fade']} bgColor="secondary" textColor="primary">
+        <Slide notes={notes.slide5} transition={['fade']} bgColor="secondary" textColor="primary">
           <Heading size={1} fit caps lineHeight={1}>
             Where it all went wrong
           </Heading>
           <img style={{ height: '40rem' }} src="/images/alpha16.jpg" />
         </Slide>
-        <Slide transition={['fade']} bgColor="secondary" textColor="primary" notes={'- Burnout on something you choose<br/>- Feeling stupid and imposter syndrome<br/>- Breakthrough but why I didn\'t make a beta<br/>- Everything I consider common sense at work, I didn\'t do for myself.'}>
+        <Slide notes={notes.slide6} transition={['fade']} bgColor="secondary" textColor="primary">
           <Heading size={1} fit caps lineHeight={1}>
             Where it all went wrong
           </Heading>
@@ -180,7 +169,7 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
-        <Slide>
+        <Slide notes={notes.slide7}>
           <Heading size={1} fit caps lineHeight={1}>
             Getting the most out of being open source
           </Heading>
@@ -195,73 +184,136 @@ export default class Presentation extends React.Component {
               <ListItem>Bitbucket</ListItem>
             </Appear>
             <Appear>
-              <ListItem>VSTS/GitLab</ListItem>
+              <ListItem>Azure DevOps</ListItem>
             </Appear>
           </List>
         </Slide>
-        <Slide bgColor="secondary" textColor="primary">
+        <Slide notes={notes.slide8} bgColor="secondary" textColor="primary">
           <Heading size={1} fit caps lineHeight={1}>
             Getting the most out of being open source
           </Heading>
           <Heading size={2} fit caps lineHeight={1} textColor="primary">
-            Code Quality
+            Continuous Integration
           </Heading>
           <List>
             <Appear>
-              <ListItem>
-                Continuous Integration
-                <List padding="0 2rem">
-                  <ListItem>Appveyor</ListItem>
-                  <ListItem>Travis</ListItem>
-                </List>
-              </ListItem>
+              <ListItem>Appveyor</ListItem>
             </Appear>
             <Appear>
-              <ListItem>
-                Code Coverage
-                <List padding="0 2rem">
-                  <ListItem>CodeCov</ListItem>
-                  <ListItem>Coveralls</ListItem>
-                </List>
-              </ListItem>
+              <ListItem>Azure DevOps Pipelines</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Travis</ListItem>
             </Appear>
           </List>
         </Slide>
-        <Slide notes={'- Open source projects and Developers<br/>- Similar Projects<br/>- NodaTime<br/>- Markdig (Copying code with licences)<br/>- Blogs'}>
+        <Slide notes={notes.slide9}>
           <Heading size={1} fit caps lineHeight={1}>
             Getting the most out of being open source
           </Heading>
           <Heading size={2} fit caps lineHeight={1}>
-            Other open source projects and Developers
+            Code Coverage
+          </Heading>
+          <List>
+            <Appear>
+              <ListItem>Coverlet</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>CodeCov</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Coveralls</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide notes={notes.slide10} bgColor="secondary" textColor="primary">
+          <Heading size={1} fit caps lineHeight={1}>
+            Getting the most out of being open source
+          </Heading>
+          <Heading size={2} fit caps lineHeight={1} textColor="primary">
+            Build Tools
+          </Heading>
+          <List>
+            <Appear>
+              <ListItem>Cake (C# Make)</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Nuke</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Anything else!</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide notes={notes.slide11}>
+          <Heading size={1} fit caps lineHeight={1}>
+            Getting the most out of being open source
+          </Heading>
+          <Heading size={2} fit caps lineHeight={1}>
+            Other open source projects
           </Heading>
           <List textColor="secondary">
             <Appear>
               <ListItem>
-                Morning Dew:<br />
+                NodaTime
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                Markdig
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                BenchmarkDotNet
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                MustacheJS & mustache.java
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide notes={notes.slide12}>
+          <Heading size={1} fit caps lineHeight={1}>
+            Getting the most out of being open source
+          </Heading>
+          <Heading size={2} fit caps lineHeight={1}>
+            Other open source Developers
+          </Heading>
+          <List textColor="secondary">
+            <Appear>
+              <ListItem>
+                Morning Dew:
+                <br />
                 <a style={linkStyle}>{'https://www.alvinashcraft.com/'}</a>
               </ListItem>
             </Appear>
             <Appear>
               <ListItem>
-                Steve Gordon<br />
+                Steve Gordon
+                <br />
                 <a style={linkStyle}>{'https://www.stevejgordon.co.uk/'}</a>
               </ListItem>
             </Appear>
             <Appear>
               <ListItem>
-                Matthew Warren<br />
+                Matthew Warren
+                <br />
                 <a style={linkStyle}>{'https://mattwarren.org/'}</a>
               </ListItem>
             </Appear>
             <Appear>
               <ListItem>
-                Alexandre Mutel<br />
+                Alexandre Mutel
+                <br />
                 <a style={linkStyle}>{'http://xoofx.com/'}</a>
               </ListItem>
             </Appear>
           </List>
         </Slide>
-        <Slide bgColor="secondary" textColor="primary">
+        <Slide notes={notes.slide13} bgColor="secondary" textColor="primary">
           <Heading size={1} fit caps lineHeight={1}>
             Getting the most out of being open source
           </Heading>
@@ -270,36 +322,47 @@ export default class Presentation extends React.Component {
           </Heading>
           <TwitterRotator users={twitterUsersSorted} />
         </Slide>
-        <Slide>
+        <Slide notes={notes.slide14}>
           <Heading size={1} fit caps lineHeight={1}>
             So how can <u>you</u> get started?
           </Heading>
           <List textColor="secondary">
+          <Appear>
+              <ListItem>
+                File/New
+                <br />
+                <span style={{ fontSize: '1.5rem' }}>
+                  No better time than now, if you've got an idea start talking about it and start working on it.
+                </span>
+              </ListItem>
+            </Appear>
             <Appear>
               <ListItem>
-                Github Explore:<br />
+                Github Explore:
+                <br />
                 <a style={linkStyle}>{'https://github.com/explore/'}</a>
               </ListItem>
             </Appear>
             <Appear>
               <ListItem>
-                Up for Grabs<br />
+                Up for Grabs
+                <br />
                 <a style={linkStyle}>{'https://up-for-grabs.net/'}</a>
               </ListItem>
             </Appear>
             <Appear>
               <ListItem>
-                Documentation<br />
+                Documentation
+                <br />
                 <span style={{ fontSize: '1.5rem' }}>
-                  Build popular projects and contribute helpful documentation on building or getting
-                  it running
+                  Build popular projects and contribute helpful documentation on building or getting it running.
                 </span>
               </ListItem>
             </Appear>
           </List>
           <TwitterRotator users={twitterUsersSorted} />
         </Slide>
-        <Slide bgColor="secondary" textColor="primary">
+        <Slide notes={notes.slide15} bgColor="secondary" textColor="primary">
           <Heading size={1} fit caps lineHeight={1}>
             Thank you for listening
           </Heading>
@@ -310,13 +373,13 @@ export default class Presentation extends React.Component {
             <TwitterRotator users={twitterUsersSorted} />
           </div>
         </Slide>
-        <Slide bgColor="secondary" textColor="primary" notes={'- Exciting Time in .Net Open Source<br/>- Talk is Open source on github (React slides thanks to FormidableLabs & Spectacle)<br/>-Thank Netlify<br/>- Thank you everyone'}>
+        <Slide notes={notes.slide16} bgColor="secondary" textColor="primary">
           <Heading size={1} fit caps lineHeight={1}>
-            Thank you for listening
+            Any Questions?
           </Heading>
-          <span style={{ fontSize: '1.5rem' }}>
+          <div style={{ fontSize: '1.5rem' }}>
             Learn as much as you can from everyone you can, embrace diversity and encourage it
-          </span>
+          </div>
           <div style={{ marginTop: '2rem' }}>
             <TwitterRotator users={twitterUsersSorted} />
           </div>

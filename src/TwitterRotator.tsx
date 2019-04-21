@@ -24,43 +24,40 @@ interface TwitterRotatorProps {
   users: TwitterData[];
 }
 
-export default class TwitterRotator extends React.Component<TwitterRotatorProps> {
-  constructor(props: TwitterRotatorProps) {
-    super(props);
-  }
-  render() {
-    const items = this.props.users.map(u => (
-      <div
-        key={u.handle}
-        style={{
-          display: 'flex',
-          padding: '0.5rem',
-          height: '144px',
-          width: '100%',
-          alignItems: 'center',
-        }}
-      >
-        <img style={twitterImage} src={u.image} />
-        <h2 style={twitterName}>
-          {u.name}
-          <span style={{ display: 'block', fontSize: '1.5rem' }}>@{u.handle}</span>
-        </h2>
-      </div>
-    ));
+const TwitterRotator = (props: TwitterRotatorProps) => {
+  const items = props.users.map(u => (
+    <div
+      key={u.handle}
+      style={{
+        display: 'flex',
+        padding: '0.5rem',
+        height: '144px',
+        width: '100%',
+        alignItems: 'center',
+      }}
+    >
+      <img style={twitterImage} src={u.image} />
+      <h2 style={twitterName}>
+        {u.name}
+        <span style={{ display: 'block', fontSize: '1.5rem' }}>@{u.handle}</span>
+      </h2>
+    </div>
+  ));
 
-    return (
-      <Carousel
-        autoplay={true}
-        slidesToShow={2}
-        wrapAround={true}
-        autoplayInterval={1750}
-        renderTopCenterControls={null}
-        renderCenterLeftControls={null}
-        renderCenterRightControls={null}
-        renderBottomCenterControls={null}
-      >
-        {items}
-      </Carousel>
-    );
-  }
+  return (
+    <Carousel
+      autoplay={true}
+      slidesToShow={2}
+      wrapAround={true}
+      autoplayInterval={1750}
+      renderTopCenterControls={null}
+      renderCenterLeftControls={null}
+      renderCenterRightControls={null}
+      renderBottomCenterControls={null}
+    >
+      {items}
+    </Carousel>
+  );
 }
+
+export default TwitterRotator;
