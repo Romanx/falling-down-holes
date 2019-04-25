@@ -23,7 +23,7 @@ Okay so lets get to it, "What is Open Source".
 
 Wikipedia defines it as _"a type of computer software with its source code made available with a license in which the copyright holder provides the rights to study, change, and distribute the software to anyone and for any purpose."_.
 
-I'd say this defines it pretty well, it's a price of software (or code) that we write and provide to others with a license stating what we allow them to do with it.
+I'd say this defines it pretty well, it's a piece of software (or code) that we write and provide to others with a license stating what we allow them to do with it.
 I'll add the aside that there are hundreds of different types of license that provide you, the copyright holder with different benefits.
 
 I personally licence most of my code under the MIT licence, this is mainly due to the fact that the project I started on was MIT. 
@@ -102,20 +102,18 @@ Speaking of Github.
 Github a very well known repository host for git projects.
 Includes issue tracking, milestones (release tracking) and version control.
 It's heavily used in the open source community and most projects you will likely find on here.
-It's free for open source projects however for a small cost you can have private repositories
+It's free for open source and private projects however you can pay to have more contributors.
 
 #### Bitbucket
 
 An alternative for github that allows a small number of private repos for free.
 It has some build services included at the free tier however i've not used them so have no real idea on how that works.
-Also includes trello boards for managing your issues in a more "kanban" agile style.
-Has integration with most of Atlassan's other offerings
+Also includes trello boards for managing your issues in a more "kanban" agile style as well as build pipelines for continuous integration and other Atlassan's offerings
 
 #### Azure DevOps
 
-A terrible name for a pretty great resource.
-They have free hosting for public and private repositories and opt in tooling for both issue management and release tracking.
-They also integrate excellently with Azure DevOps Pipelines unsurprisingly which we'll discuss in a second.
+A terrible name for a pretty great tool.
+They have free hosting for public and private repositories and opt in tooling for both issue management, release tracking, artifact hosting and continous integration with Azure DevOps Pipelines unsurprisingly which we'll discuss in a second.
 
 ### Code Quality
 
@@ -133,7 +131,7 @@ This creates an dialog between me and the contributor but without the manual ove
 
 - Appveyor: provide both Windows and Linux build machines for you to run your scripts on and have a whole host of other services you can use during your build such as Database Engines.
 - Azure DevOps Pipelines: Pipelines can be used separately from source control. It provides both Windows and Linux build machines for you to run your scripts. It also has the unique aspect of separating both build and release pipelines allowing you to release entirely separately from your build.
-- Travis: Travis has Linux build machines and has starting support for Windows machines. Personally i've found it less robust than Appveyor or Azure DevOps and am moving most of my workload to both Appveyor and Azure DevOps.
+- Travis: Travis has Linux build machines and has starting support for Windows machines. Personally i've found it less intuative than Appveyor or Azure DevOps and am moving most of my workload to both Appveyor and Azure DevOps.
 
 #### Code Coverage
 
@@ -150,7 +148,11 @@ Now this is less of an issue with PowershellCore but management of these scripts
 The general rule here is whatever works for you is perfect, it won't change too often but when it does it can lead to a lot of frustration.
 
 #### Cake
-Cake or C# Make is a C# domain specific language based method of writing your build tasks. This has specific libraries for compling your code, copying files or folders or any other tasks you may need. There's also a health ecosystem of extensions around this for any other needs you may have. It's also open source!
+Cake or C# Make is a C# domain specific language based method of writing your build tasks.
+This has specific libraries for compling your code, copying files or folders or any other tasks you may need.
+There's also a health ecosystem of extensions around this for any other needs you may have.
+I actually created an extension integrating Coverlet with Cake since I was using both and wanted a fuller experience.
+I open sourced this and Cake itself is also open source!
 
 #### Nuke
 Another C# based build automation system allowing you to write your build tasks in a C# like domain specific lanaguage. I've not got to use Nuke yet but it's gaining traction and seems like an interesting variation on what Cake is doing.
@@ -160,15 +162,17 @@ However you do your build scripts the important thing is it is clearly defined s
 
 ### Other open source projects
 
-To me one of the most important resources that I use regularly when working on Stubble is other open source developers and projects.
+So those are some of the tools and services that I suggest taking a look at during your journey but to me one of the most important resources that I use regularly when working on Stubble is other open source developers and projects.
 I usually try to look for projects with a similar type such as other parsers or templating languages, often these don't even need to be in the same language such as Mustache.java however its useful to look at how others have solved similar problems.
 
-I use Jon Skeet's NodaTime project heavily when trying to understand how best to layout my project and get it working with Appveyor and Travis. He's an excellent developer and always writes very clean code, I'd advise anyone to take a look.
+I've used Jon Skeet's NodaTime project heavily when trying to understand how best to layout my project and get it working with Appveyor and Travis.
+His approach to a public api which is both intuative and sufficently captures the complexity of his domain is very interesting.
+He's an excellent developer and always writes very clean code, I'd advise anyone to take a look.
 
 I also borrowed a lot from Markdig by Xoofx. I actually copied some of his code for string slicing, with attribution of course since its open source with a permissive licence.
 
 BenchmarkDotNet becoming popular allowed me to throw away my rough and ready benchmarks and replace them with something more robust and probably accurate.
-At the same time I looked at how Mustache.java was doing their performance testing and added mimiced their tests to give myself something more real-world.
+At the same time I looked at how Mustache.java was doing their performance testing and mimiced their tests to give myself a more more real-world example as theirs was based on something twitter needed.
 
 ### Other open source developers
 
@@ -191,10 +195,13 @@ And lastly Twitter! I used to really dislike twitter and then I began to curate 
 Okay so you've listen to me ramble long enough.
 If i've peaked your interest at all in jumping down rabbit holes then here are some resources i'd recommend to get started.
 
-Unless you have an idea in your head, a good place to get started is by contributing to others projects.
-Some ways to find projects to contribute is through github explore.
-This is a curated resource of projects on github that are categorised and you can see whats trending across different time periods.
-It's a good resource to discover big projects that are likely to be mentioned across twitter or in other spaces.
+If you've got an idea then thats great! Get started, the hardest thing in my personal experience is getting the basis.
+Start talking about your idea on social media, find out what other problems people have in the same area and start working on it.
+If you don't and to be honest thats entirely understandable, a good place to get started is by contributing to others projects.
+
+Some ways to find projects to contribute is through Github Explore.
+It's a curated resource of projects on github that are categorised and you can see whats trending across different time periods and languages.
+It's a excellent resource to discover bigger projects that are likely to be mentioned across twitter or in other spaces.
 
 Up for grabs is an excellent starting place as you can find projects and issues that have been specifically selected by the maintainers as a good for getting started.
 
@@ -212,6 +219,8 @@ This talk is available on github at the url behind me: https://github.com/romanx
 While working on this I was trying to procrastinate so much I wrote it in React so a thank you to FormidableLabs for writing spectacle which helped me write my slide application.
 
 This has been a terrfying experience and I hope that I've not bored you all. My biggest drive with this talk was to show that If I can develop open source software then so can you.
-And if I can give a talk on something then so can you. Hopefully I get to hear one of you speak next time.
+And if I can give a talk on something then so can you.
+Hopefully I get to hear one of you speak next time.
 
-Please learn as much as you can from everyone you can, embrace diversity and encourage it. Thank you for listening to me.
+Please learn as much as you can from everyone you can, embrace diversity and encourage it.
+Thank you for listening to me.
