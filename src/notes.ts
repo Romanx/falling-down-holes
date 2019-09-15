@@ -71,9 +71,13 @@ let notes: { [key: string]: string } = {
       - Start talking about the problem you want to solve or what you want to learn. Maybe others want to come along with you?
       - Github Explore: has plenty of of projects for you to look at and begin to play with and learn from.
       - Up For Grabs: Tasks specifically curated for new contributors
-      - Documentation: How to build a project, missing dependencies`,
+      - Documentation: How to build a project, missing dependencies
+      - "How to contribute..." by Sarah Drasner is a recent post and an excellent resource. She's also a incredible, go follow them twitter`,
   slide15: `
-      - So many excellent projects, maintainers, contributors and influencers in the community and we could only use more
+      - So many excellent projects, maintainers, contributors and influencers in the community and we could only use more.
+      - Honesty about Burnout and Isolation. It's not easy to talk about but we should to normalise it.
+      - "Share your learning with everyone, we all fail and fall down holes.
+      Let's help each other by talking about it." 
       - Talk is Open Source on github (React slides thanks to FormidableLabs & Spectacle)
       - Thank Netlify`,
   slide16: `

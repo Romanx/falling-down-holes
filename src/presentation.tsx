@@ -362,6 +362,13 @@ export default class Presentation extends React.Component {
                 </span>
               </ListItem>
             </Appear>
+            <Appear>
+              <ListItem>
+                <span style={{ fontSize: '2rem' }}>How to Contribute to an Open Source Project by @sarah_edo</span>
+                <br />
+                <a style={linkStyle}>{'https://css-tricks.com/how-to-contribute-to-an-open-source-project/'}</a>
+              </ListItem>
+            </Appear>
           </List>
           <TwitterRotator users={twitterUsersSorted} />
         </Slide>

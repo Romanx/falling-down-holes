@@ -212,10 +212,17 @@ It's also worth mentioning that a good place to start is with documentation impr
 Download their code and try to get it running on your machine, document anything you think isn't clear and contribute it back with a friendly pull request.
 Many maintainers would love to have your input in making their project better and often docs are overlooked.
 
+Last but not least is a new post by Sarah Drasner on how to contributing to open source. It's an opinionated step by step guide but an excellent resource. Sarah is incredible, I'd recommend following them on twitter.
+
 ## Wrapup
 
 I hope that this rambling talk has at least warned you of some of the pitfalls that I fell into, but also given you an insight into how exiting and interesting open source can be.
 There are so many excellent projects, maintainers and influencers in the open source community and especially the resurgence the dotnet open source community has seen in the last few years.
+
+I've tried to be honest about some of the mental elements of the journey including my burnout and isolation.
+These aren't easy subjects to speak about but the more we do an normalise we reduce the stigma about it.
+Share your learning with everyone, we all fail and fall down holes.
+Let's help each other by talking about it.
 
 This talk is available on github at the url behind me: https://github.com/romanx/falling-down-holes
 
