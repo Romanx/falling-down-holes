@@ -41,6 +41,7 @@ let notes: { [key: string]: string } = {
         - Integrates with your Source Control host so you can verify contributions before accepting them
         - Commonly these are used with branch policies to create and push releases only if your build is successful
         - Azure pipelines can be use separately from the source control and manages builds and releases separately
+        - Github Actions: Is in beta, based on azure pipelines syntax, can run on a variety of different hooks
     `,
   slide9: `
         - Coverage from your tests is useful but not <b>must</b> target 100%

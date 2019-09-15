@@ -205,6 +205,9 @@ export default class Presentation extends React.Component {
             <Appear>
               <ListItem>Travis</ListItem>
             </Appear>
+            <Appear>
+              <ListItem>Github Actions</ListItem>
+            </Appear>
           </List>
         </Slide>
         <Slide notes={notes.slide9}>

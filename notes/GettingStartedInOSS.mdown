@@ -132,6 +132,7 @@ This creates an dialog between me and the contributor but without the manual ove
 - Appveyor: provide both Windows and Linux build machines for you to run your scripts on and have a whole host of other services you can use during your build such as Database Engines.
 - Azure DevOps Pipelines: Pipelines can be used separately from source control. It provides both Windows and Linux build machines for you to run your scripts. It also has the unique aspect of separating both build and release pipelines allowing you to release entirely separately from your build.
 - Travis: Travis has Linux build machines and has starting support for Windows machines. Personally i've found it less intuative than Appveyor or Azure DevOps and am moving most of my workload to both Appveyor and Azure DevOps.
+- Github: Github has rcently announced a public beta for Github actions which provide continuous integration hooks for a variety of events on github allowing you to run code on demand for a variety of actions such as pushing code or opening pull requests. This runs on the infrastructure of Azure Devops and so has a similar syntax but people are very excited about the possibilities.
 
 #### Code Coverage
 
