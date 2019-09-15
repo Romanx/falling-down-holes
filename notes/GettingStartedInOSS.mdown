@@ -137,10 +137,12 @@ This creates an dialog between me and the contributor but without the manual ove
 #### Code Coverage
 
 If you're writing tests and running them automatically you can use tools like Coverlet to give you a coverage output showing how much of your code is being tested.
-This isn't a perfect metric and infact sometimes can lead to writing tests just to increased your coverage, I'm definately guilty of this. 
+This isn't a perfect metric and infact sometimes can lead to writing tests just to increased your coverage, I'm definately guilty of this.
 It does however allow you to see if you're missing whole branches of code in your tests and write some that cover it giving you more confidence so that when others contribute you can be sure your tests are covering what it needs to.
 
-Tools and Services such as Coveralls and CodeCov fall into the category of providing you with fancy graphs and a historical view of how your coverage has improved or decreased. This can give us verification we're going in the right direction and unknowingly going backwards.
+There's a lot of discussion about what percentage of your code should be covered. I generally now advocate for covering your logic and that should get you most of the way to 100% coverage since all your code should be hit at some point by your logic otherwise what's it used for? Are you missing some logic?
+
+Tools and Services such as Coveralls and CodeCov fall into the category of providing you with fancy graphs and a historical view of how your coverage has improved or decreased. This can give us verification we're going in the right direction and unknowingly going backwards. These also integrate well with services such as GitHub for pull requests.
 
 ### Build Tools
 This is an odd heading but I couldn't think of anything better.

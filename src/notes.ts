@@ -44,7 +44,7 @@ let notes: { [key: string]: string } = {
         - Github Actions: Is in beta, based on azure pipelines syntax, can run on a variety of different hooks
     `,
   slide9: `
-        - Coverage from your tests is useful but not <b>must</b> target 100%
+        - Coverage from your tests is useful, there's a lot of discussion around what amount of coverage you need, I would generally argue for covering your logic and that should get you most of the way to full coverage.
         - Tools providing history allow you to track improvements or regressions.`,
   slide10: `
         - However you decide to do this is <u>fine!</u>
